@@ -1,8 +1,8 @@
-# PharmacyGO! V.2
+# PharmacyGO! v3
 
 PharmacyGO! is a Unity-based educational game developed for Oregon State University's College of Pharmacy. Students studying for **PHAR 736: Drug Action III — Autonomic Drug Action** travel through levels, answer questions ranging from easy to hard, and collect coins to test and reinforce their knowledge before exams.
 
-This repository contains the completed Version 2 of the game, developed as a capstone project by a team of OSU Computer Science students.
+This repository contains Version 3 of the game, developed as a capstone project by a team of OSU Computer Science students.
 
 **[Play PharmacyGO! V.2 on itch.io](https://shiningn-osu.itch.io/pharmacy-go-v2)**
 
@@ -55,17 +55,17 @@ The database management app allows the project partner to add, edit, and remove 
 
 | Name | Area | GitHub | Email |
 |---|---|---|---|
-| Annmarie Geiger | Database Management | [@kyofyufufufufufufufu](https://github.com/kyofyufufufufufufufu) | geigerta@oregonstate.edu |
-| Lucy Cheng | AI Development | [@LucyCheng111](https://github.com/LucyCheng111) | chengjuh@oregonstate.edu |
-| Nick Shininger | Game Content Development, Minigames | [@shiningn-osu](https://github.com/shiningn-osu) | shiningn@oregonstate.edu |
-| Jakob Poore | Level Design | [@poorej](https://github.com/poorej) | poorej@oregonstate.edu |
-| Max Baker | Game Mechanics Development | [@Crimson-Ender](https://github.com/Crimson-Ender) | bakerm7@oregonstate.edu |
+| Alex Loomis | Level Design, Art Direction | [@abloomis](https://github.com/abloomis) | loomisa@oregonstate.edu |
+| Nathan Ngo | AI Development | [@Sen-design03](https://github.com/Sen-design03) | ngona@oregonstate.edu |
+| Shawn Park | Game Content Development, Minigames | [@SSPark04](https://github.com/SSPark04) | parks3@oregonstate.edu |
+| Zach Goldstein | Level Design, Database Management | [@sangastra](https://github.com/sangastra) | poorej@oregonstate.edu |
+
 
 ---
 
 ## Support & Handoff
 
-This project was developed as a capstone at Oregon State University and is fully complete as of Version 2. For installation help, technical issues, or feature requests, submit a request via the [PharmacyGO Support & Feedback Form](https://forms.gle/NajcPYnEa8jS3CWN6). Submissions are monitored by the project manager and will be routed to the appropriate team.
+This project was developed as a capstone at Oregon State University. For support and technical questions, submit an email to loomisa@oregonstate.edu
 
 For contributing guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
