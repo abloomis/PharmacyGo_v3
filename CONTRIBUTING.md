@@ -58,6 +58,15 @@ Examples:
 3. The condition or steps that trigger it
 4. Expected vs. actual behavior
 
+## Version 3 Development Team
+
+| Name | Area | GitHub | Email |
+|---|---|---|---|
+| Alex Loomis | Level Design, Art Direction | [@abloomis](https://github.com/abloomis) | loomisa@oregonstate.edu |
+| Nathan Ngo | AI Development | [@Sen-design03](https://github.com/Sen-design03) | ngona@oregonstate.edu |
+| Shawn Park | Game Content Development, Minigames | [@SSPark04](https://github.com/SSPark04) | parks3@oregonstate.edu |
+| Zach Goldstein | Level Design, Database Management | [@sangastra](https://github.com/sangastra) | poorej@oregonstate.edu |
+
 ## Version 2 Development Team
 
 | Name | Area | GitHub | Email |
@@ -83,6 +92,6 @@ Examples:
 
 ## Handoff & Support
 
-This project was developed as a capstone at Oregon State University. For installation help, technical issues, feature requests, or general questions, submit a request via the [PharmacyGO Support & Feedback Form](https://forms.gle/NajcPYnEa8jS3CWN6). Submissions are monitored by the project manager and will be routed to the appropriate team or future development group.
+This project was developed as a capstone at Oregon State University. For installation help, technical issues, feature requests, or general questions, submit an email to loomisa@oregonstate.edu
 
-For bugs in the codebase, please open a [GitHub Issue](https://github.com/LucyCheng111/PharmacyGO/issues) instead.
+For bugs in the codebase, please open a [GitHub Issue](https://github.com/abloomis/PharmacyGo_v3/issues).
