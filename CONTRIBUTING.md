@@ -5,14 +5,15 @@
 - [GitHub](https://github.com/) account
 - [GitHub Desktop](https://desktop.github.com/)
 - [Unity Hub](https://unity.com/download)
-- Unity editor version **6000.0.024f1** — download from the [Unity Editor Archive](https://unity.com/releases/editor/archive) (select "All versions" to find it)
+- Unity editor version **6000.0.24f1** — download from the [Unity Editor Archive](https://unity.com/releases/editor/archive) (select "All versions" to find it)
 
 ## Local Setup
 
-1. Clone the [PharmacyGO repository](https://github.com/LucyCheng111/PharmacyGO) using GitHub Desktop
-2. Open the project in Unity Hub and confirm the editor version is **6000.0.024f1**
-3. In the Project window, navigate to `Assets/Scenes/Main Levels/` and open **Main Menu**
-4. Press **Play** — if the game runs without errors, your setup is good
+1. Clone the [PharmacyGO repository](https://github.com/abloomis/PharmacyGo_v3) using GitHub Desktop
+2. Open the project in Unity Hub by selecting the "add" > "Add project from disk" options, then selecting the local copy of the repository
+3. Confirm the editor version is **6000.0.024f1**
+5. In the Project window, navigate to `Assets/Scenes/Main Levels/` and open **Main Menu**
+6. Press **Play** — if the game runs without errors, your setup is good
 
 ## Expected Contribution Workflow
 
@@ -28,7 +29,7 @@ Examples:
 ### 2. Opening a Pull Request
 
 1. Push your changes to your branch
-2. Go to the [Pull Requests tab](https://github.com/LucyCheng111/PharmacyGO/pulls) and open a new PR
+2. Go to the [Pull Requests tab](https://github.com/abloomis/PharmacyGo_v3/pulls) and open a new PR
 3. Assign relevant team members as reviewers (see [Team](#team) below)
 
 ### 3. What to Include in Your PR
@@ -51,7 +52,7 @@ Examples:
 
 ## Reporting Bugs / Requesting Changes
 
-[Open an Issue](https://github.com/LucyCheng111/PharmacyGO/issues) in the repository and include:
+[Open an Issue](https://github.com/abloomis/PharmacyGo_v3/issues) in the repository and include:
 
 1. A clear description of the bug or requested change
 2. Which file(s) are involved
