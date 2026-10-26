@@ -86,6 +86,9 @@ public class SlapjackMinigame : MonoBehaviour
 
     public void CloseWindow()
     {
+        StopAllCoroutines();               // stop opponent turn coroutines, issue #4
+        awaiting = SlapjackPlay.GameEnd;   // block any leftover opponent action
+        cardisMoving = false;
         GameController.Instance.EndMinigame();
         slapjack.SetActive(false);
     }
@@ -140,6 +143,9 @@ public class SlapjackMinigame : MonoBehaviour
 
     public void RestartPlay()
     {
+        StopAllCoroutines();   // clear coroutines left from the previous game, issue #4
+        cardisMoving = false;
+
         playerTurnreader.SetActive(true);
         opponentTurnreader.SetActive(false);
         opponentDecidedNo = false;
