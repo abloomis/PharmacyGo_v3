@@ -58,7 +58,7 @@ The database management app allows the project partner to add, edit, and remove 
 | Alex Loomis | Level Design, Art Direction | [@abloomis](https://github.com/abloomis) | loomisa@oregonstate.edu |
 | Nathan Ngo | AI Development | [@Sen-design03](https://github.com/Sen-design03) | ngona@oregonstate.edu |
 | Shawn Park | Game Content Development, Minigames | [@SSPark04](https://github.com/SSPark04) | parks3@oregonstate.edu |
-| Zach Goldstein | Level Design, Database Management | [@sangastra](https://github.com/sangastra) | poorej@oregonstate.edu |
+| Zach Goldstein | Level Design, Database Management | [@sangastra](https://github.com/sangastra) | goldstza@oregonstate.edu |
 
 
 ---
