@@ -7,7 +7,7 @@ integration so the project partner can edit study questions and material.
 
 ## Architecture
 ![C4 context diagram](./diagrams/context.png)
-![C4 container diagram](./diagrams/containers.png)
+![C4 container diagram](./diagrams/container.png)
 - Game Engine (Unity, WebGL): overworld, battles, quiz gameplay, runs in the student's browser.
 - Admin App (C#, WinForms): edit, save, and bulk upload study questions, commits to GitHub via GitHub API.
 - Question Data: <jsonTest.json> (https://github.com/kyofyufufufufufufufu/test_database1/blob/main/jsonTest.json) loaded in by the admin app.
