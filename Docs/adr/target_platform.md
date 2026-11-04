@@ -61,11 +61,17 @@ Our primary constraint is the requirement of the game being cross-platform, whic
 I made my recommendation without the assistance of AI tools. We manually test the game during development cycles to get a holistic view of the changes we’ve made, and to identify any bugs we need to address. Should we continue to use Itch, performing manual tests of our game hosted on Itch platform will be our key to checking whether this decision was successful.
 
 Before making this decision, we will discuss with our project partner, explaining to him the pros and cons of each option. We will also read over our peer reviews and take their feedback into account before cementing our choice.
-##Sources
+
+## **Sources**
 Chang, A. (2026, February 25). Itch.io vs. steam early access for indie game developers. Spiral Up Games. https://www.spiralupgames.com/post/itch-io-vs-steam-early-access-for-indie-game-developers
+
 COE IT_Support. (2026, October 14). Your PUBLIC_HTML folder. Information Technology and Computing Support. https://it.engineering.oregonstate.edu/web/public-html
+
 Steamworks Documentation. (2008a). Steamworks Documentation > Getting Started > Steam Direct Fee. https://partner.steamgames.com/doc/gettingstarted/appfee
+
 Steamworks Documentation. (2008b). Steamworks Documentation > Store Presence > Applications > Platforms. Steamworks. https://partner.steamgames.com/doc/store/application/platforms
+
 Trivellato, M. (2016, September 20). Understanding memory in Unity Webgl. Understanding memory in Unity WebGL. https://unity.com/blog/engine-platform/understanding-memory-in-unity-webgl
+
 Unity Documentation. (2016). WebGL networking. https://docs.unity3d.com/540/Documentation/Manual/webgl-networking.html
 
