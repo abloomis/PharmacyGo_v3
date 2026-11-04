@@ -76,6 +76,8 @@ public class CardMatchingMinigame : MonoBehaviour
     
     public void CloseWindow()
     {
+        StopAllCoroutines();                    // stop opponent turn coroutines, issue #23
+        awaiting = CardMatchingPlay.GameEnd;    // block any leftover opponent action
         GameController.Instance.EndMinigame();
         cardMatching.SetActive(false);
     }
@@ -186,6 +188,8 @@ public class CardMatchingMinigame : MonoBehaviour
 
     public void RestartPlay()
     {
+        StopAllCoroutines();   // clear coroutines left from the previous game, issue #23
+
         playerPlayReader.text = "Selecting a Question Card...";
         rivalPlayReader.text = "";
         for(int i = 0; i < questions.Count; i++)
