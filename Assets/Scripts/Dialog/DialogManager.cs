@@ -142,5 +142,19 @@ public class DialogManager : MonoBehaviour
         
     }
 
+    /* 
+     * Called at the end of minigames to force-close
+     * the rival's dialogue prompt. (Issue #23)
+     */
+    public void ForceClose()
+    {
+        dialogBox.SetActive(false);
+        // Also hide the choice box; adjust to whatever ChoiceBox exposes
+        choiceBox.gameObject.SetActive(false);
+        IsShowing = false;
+        // let any listeners resume control, i.e. player movement
+        OnDialogFinished?.Invoke();  
+    }
+
 
 }

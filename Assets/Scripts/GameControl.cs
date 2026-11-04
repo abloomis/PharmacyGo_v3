@@ -174,6 +174,7 @@ private void Start()
     public void EndMinigame()
     {
         state = GameState.FreeRoam;
+        DialogManager.Instance.ForceClose(); // Issue #23
     }
 
     // Update is called once per frame
