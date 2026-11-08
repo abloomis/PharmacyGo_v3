@@ -4,8 +4,7 @@ PharmacyGO! is a Unity-based educational game developed for Oregon State Univers
 
 This repository contains Version 3 of the game, developed as a capstone project by a team of OSU Computer Science students.
 
-**[Play PharmacyGO! v3 on itch.io](https://abloomis.itch.io/pharmacy-go-v3)**
-Use password *pharmacygov3*
+**[Play PharmacyGO! v3 on itch.io](https://abloomis.itch.io/pharmacy-go-v3)**  (password is *pharmacygov3*)
 
 ---
 
