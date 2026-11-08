@@ -50,6 +50,18 @@ Examples:
 - Flag anything that touches shared systems (Hub scene, DialogBox, BattleCanvas) — these affect multiple contributors
 - Approve only if you actually tested it
 
+## Pushing a New Build to Itch
+
+The main branch should always hold a functional, ready-to-ship version of the game that students can play on Itch. Whenever the game is patched, make sure to update it on Itch as well. Below are the steps to do so.
+
+1. In the Unity editor, select "File" in the top left then "Build Profiles".
+2. This creates a "Build Profiles" window. On the left side, select "Web" as your platform. The first time you do this, you may need to install WebGL packages; Unity will let you know if you need them.
+3. Select "Switch Platform", then select "Build" (NOT "Build and Run"). Unity will ask for a directory to hold the build files, you can use /Builds for example.
+4. After several minutes, the build will complete. Open the directory where you placed the files, then drag-click to select them all, and right-click to zip them all into a compressed folder.
+5. Open your Itch page for PharmacyGo and enter the page editor. In "Edit Game", scroll down to "Upload Files", then paste the newly created zip folder.
+6. While on the Itch page, ensure that the "This file will be played in the browser" and the "Mobile friendly" options are toggled on. Also, ensure that the embed option is set to "Click to launch in fullscreen".
+7. Now the newest build of the game should be running on your Itch page! Repeat this process for every new patch.
+
 ## Reporting Bugs / Requesting Changes
 
 [Open an Issue](https://github.com/abloomis/PharmacyGo_v3/issues) in the repository and include:
@@ -66,7 +78,7 @@ Examples:
 | Alex Loomis | Level Design, Art Direction | [@abloomis](https://github.com/abloomis) | loomisa@oregonstate.edu |
 | Nathan Ngo | AI Development | [@Sen-design03](https://github.com/Sen-design03) | ngona@oregonstate.edu |
 | Shawn Park | Game Content Development, Minigames | [@SSPark04](https://github.com/SSPark04) | parks3@oregonstate.edu |
-| Zach Goldstein | Level Design, Database Management | [@sangastra](https://github.com/sangastra) | poorej@oregonstate.edu |
+| Zach Goldstein | Level Design, Database Management | [@sangastra](https://github.com/sangastra) | goldstza@oregonstate.edu |
 
 ## Version 2 Development Team
 
