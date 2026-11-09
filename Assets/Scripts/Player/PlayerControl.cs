@@ -218,9 +218,21 @@ public class PlayerControl : MonoBehaviour
             return true;
         }
 
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null)
+        // V2 code:
+        // if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null)
+        // {
+        //    return false;
+        //}
+
+        // Block movement on walls & interactables, except AI Rival,
+        // which follows the player and shouldn't obstruct them.
+        Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, 0.2f, solidObjectsLayer | interactableLayer);
+        foreach (Collider2D hit in hits)
         {
-            return false;
+            if (hit.GetComponentInParent<AiRival>() == null)
+            {
+                return false;
+            }
         }
         return true;
     } 
