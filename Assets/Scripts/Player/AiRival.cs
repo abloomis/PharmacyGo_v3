@@ -25,6 +25,14 @@ public class AiRival : MonoBehaviour, Interactable
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private float collisionCheckRadius = 0.2f;
 
+    // Leash: teleport back to the player when too far away or stuck behind something
+    [Header("Leash / Teleport")]
+    [SerializeField] private float leashDistance = 8f;              // teleport if farther than this from the player
+    [SerializeField] private float stuckTimeBeforeTeleport = 1.5f;  // teleport if trying to move but blocked this long
+    [SerializeField] private float teleportCooldown = 2f;           // minimum seconds between teleports
+    [SerializeField] private float trailSpacing = 0.5f;             // distance between recorded player positions
+    [SerializeField] private int maxTrailLength = 20;               // how many recent player positions to keep
+
 
 
     // Private
@@ -35,6 +43,12 @@ public class AiRival : MonoBehaviour, Interactable
     private bool isInteracting = false;
     private bool isShutdown = false;
     private bool AiRestarted = false;
+
+    // Recent positions the player stood on (oldest first). The player walked there,
+    // so they are safe places to place the Rival when it teleports.
+    private readonly List<Vector3> playerTrail = new List<Vector3>();
+    private float stuckTimer = 0f;
+    private float lastTeleportTime = -999f;
     enum AiPointState
     {
         Win,
@@ -103,10 +117,12 @@ public class AiRival : MonoBehaviour, Interactable
             if (player == null) return;
         }
 
-        // Check if player is sprinting and adjust AI speed
+        // Checks if player is sprinting and adjusts AI speed
         CheckPlayerSprint();
 
+        RecordPlayerTrail();
 
+        Vector3 positionBefore = transform.position;
 
         Vector3 direction = player.position - transform.position;
         float distance = direction.magnitude;
@@ -160,6 +176,8 @@ public class AiRival : MonoBehaviour, Interactable
             lastMoveDirection = moveDirection;
         }
 
+        // Teleport back to the player if too far away or stuck
+        UpdateLeash(distance, shouldMove, positionBefore);
 
         animator.SetBool("isMoving", shouldMove);
     }
@@ -462,6 +480,9 @@ public class AiRival : MonoBehaviour, Interactable
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Positions from the previous scene are meaningless in the new one
+        playerTrail.Clear();
+        stuckTimer = 0f;
 
         // Wait for scene to fully load, then teleport to player
         StartCoroutine(TeleportToPlayerAfterDelay());
@@ -485,10 +506,99 @@ public class AiRival : MonoBehaviour, Interactable
     {
         if (player == null) return;
 
-        // Teleport to near the player (behind the player)
-        Vector3 spawnOffset = new Vector3(-2.0f, 0f, 0f);
-        transform.position = player.position + spawnOffset;
+        if (TryFindTeleportSpot(out Vector3 spot))
+        {
+            transform.position = spot;
+        }
+        else
+        {
+            // Nowhere clear was found: fall back to the old fixed offset
+            transform.position = player.position + new Vector3(-2.0f, 0f, 0f);
+        }
 
+        lastTeleportTime = Time.time;
+        stuckTimer = 0f;
+    }
+
+    // Remember where the player has recently walked, one point every trailSpacing units
+    private void RecordPlayerTrail()
+    {
+        Vector3 playerPos = player.position;
+
+        if (playerTrail.Count == 0 ||
+            Vector3.Distance(playerTrail[playerTrail.Count - 1], playerPos) >= trailSpacing)
+        {
+            playerTrail.Add(playerPos);
+
+            if (playerTrail.Count > maxTrailLength)
+            {
+                playerTrail.RemoveAt(0);
+            }
+        }
+    }
+
+    // Teleport to the player when the Rival is beyond leash range,
+    // or has been trying to move without making progress (obstructed)
+    private void UpdateLeash(float distanceToPlayer, bool triedToMove, Vector3 positionBefore)
+    {
+        float movedThisFrame = Vector3.Distance(transform.position, positionBefore);
+
+        if (triedToMove && movedThisFrame < 0.001f)
+        {
+            stuckTimer += Time.deltaTime;
+        }
+        else
+        {
+            stuckTimer = 0f;
+        }
+
+        bool tooFar = distanceToPlayer > leashDistance;
+        bool stuck = stuckTimer >= stuckTimeBeforeTeleport;
+
+        if (!tooFar && !stuck) return;
+        if (Time.time - lastTeleportTime < teleportCooldown) return;
+
+        if (TryFindTeleportSpot(out Vector3 spot))
+        {
+            transform.position = spot;
+            lastTeleportTime = Time.time;
+            stuckTimer = 0f;
+        }
+    }
+
+    // Find a clear spot near the player to teleport to.
+    // Prefers the player's recent trail (known to be walkable), then spots around the player.
+    private bool TryFindTeleportSpot(out Vector3 spot)
+    {
+        // 1. Walk back along the trail from the newest point and take the first one that is
+        // far enough from the player and still clear.
+        for (int i = playerTrail.Count - 1; i >= 0; i--)
+        {
+            Vector3 crumb = playerTrail[i];
+            float distance = Vector3.Distance(crumb, player.position);
+
+            if (distance < minDistanceFromPlayer) continue;   // too close to the player
+            if (distance > leashDistance) continue;           // too far, would trigger the leash again
+            if (!IsWalkable(crumb)) continue;                 // something is standing there now
+
+            spot = crumb;
+            return true;
+        }
+
+        // 2. No usable trail point (e.g. right after a scene load): try spots around the player
+        Vector3[] directions = { Vector3.left, Vector3.right, Vector3.down, Vector3.up };
+        foreach (Vector3 dir in directions)
+        {
+            Vector3 candidate = player.position + dir * stoppingDistance;
+            if (IsWalkable(candidate))
+            {
+                spot = candidate;
+                return true;
+            }
+        }
+
+        spot = transform.position;
+        return false;
     }
 
 
