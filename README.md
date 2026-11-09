@@ -4,7 +4,7 @@ PharmacyGO! is a Unity-based educational game developed for Oregon State Univers
 
 This repository contains Version 3 of the game, developed as a capstone project by a team of OSU Computer Science students.
 
-**[Play PharmacyGO! V.2 on itch.io](https://shiningn-osu.itch.io/pharmacy-go-v2)**
+**[Play PharmacyGO! v3 on itch.io](https://abloomis.itch.io/pharmacy-go-v3)**  (password is *pharmacygov3*)
 
 ---
 
@@ -19,10 +19,10 @@ This repository contains Version 3 of the game, developed as a capstone project 
 
 ## Setup & Installation
 
-1. Clone the [PharmacyGO repository](https://github.com/LucyCheng111/PharmacyGO) using GitHub Desktop
-2. Open the project in Unity Hub and confirm the editor version is **6000.0.024f1**
+1. Clone the [PharmacyGO repository](https://github.com/abloomis/PharmacyGo_v3) using GitHub Desktop
+2. Open the project in Unity Hub and confirm that your editor is in version **6000.0.024f1**
 3. In the Project window, navigate to `Assets/Scenes/Main Levels/` and open **Main Menu**
-4. Press **Play** — if the game runs without errors, your setup is good
+4. Press the **Play** button at the top — if the game runs without errors, you're all set
 
 ---
 
@@ -44,7 +44,7 @@ Assets/
 
 | Repository | Description |
 |---|---|
-| [PharmacyGO Unity Project](https://github.com/LucyCheng111/PharmacyGO) | Main Unity game |
+| [PharmacyGO Unity Project](https://github.com/abloomis/PharmacyGo_v3) | Main Unity game |
 | [Database Management App](https://github.com/kyofyufufufufufufufu/test_database1) | WinForms C# app for managing game database content |
 
 The database management app allows the project partner to add, edit, and remove questions from the game without modifying the Unity project directly.
