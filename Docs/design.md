@@ -1,9 +1,8 @@
 # Design
 
 ## Overview
-Study game for OSU PHAR736 students, developed in Unity and hosted on 
-Itch, link [here](https://abloomis.itch.io/pharmacy-go-v3). A [WinForms C# app](https://github.com/kyofyufufufufufufufu/test_database1) manages database
-integration so the project partner can edit study questions and material.
+PharmacyGo! is a study game for OSU PHAR736 students, developed in Unity and hosted on 
+[Itch](https://abloomis.itch.io/pharmacy-go-v3) for players to access at any time. A [WinForms C# app](https://github.com/kyofyufufufufufufufu/test_database1) manages database integration, allowing the project partner to dynamically edit the study questions used by the game.
 
 ## Architecture
 ![C4 context diagram](./diagrams/context.png)
@@ -19,7 +18,7 @@ integration so the project partner can edit study questions and material.
 
 ## Data
 - JSON file in git
-- Player save data
+- Player save data saved in browser storage via IndexedDB
 
 ## Deployment
 - Game: Unity WebGL build uploaded to [Itch.io](https://abloomis.itch.io/pharmacy-go-v3) manually, public access.
@@ -30,7 +29,9 @@ integration so the project partner can edit study questions and material.
 - Movement: change to tile-based, or keep free + diagonal movement?
 - Art: use a unified palette across the whole game? Use natively-sized pixel art for the entire game, including fonts and UI?
 - Battles: how can we incorporate animations into battle UI?
+- Save data: create manual-save and manual-load options (i.e. save a hash to a txt file)?
 
 ## Deferred decisions
 - Character customization: best approach (palette swap, different sprites) and how choices are saved.
-- Backend: using GitHub tokens may be limiting if player volume or rate limits increase. 
+- Backend: using GitHub tokens may be limiting if player volume or rate limits increase.
+- Custom Tilesets: current tilesets are all free + open-source assets.
