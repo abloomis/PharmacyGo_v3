@@ -2,7 +2,7 @@
 
 ## Overview
 Study game for OSU PHAR736 students, developed in Unity and hosted on 
-Itch. A [WinForms C# app](https://github.com/kyofyufufufufufufufu/test_database1) manages database
+Itch, link [here](https://abloomis.itch.io/pharmacy-go-v3). A [WinForms C# app](https://github.com/kyofyufufufufufufufu/test_database1) manages database
 integration so the project partner can edit study questions and material.
 
 ## Architecture
@@ -22,12 +22,14 @@ integration so the project partner can edit study questions and material.
 - Player save data
 
 ## Deployment
-- Game: Unity WebGL uploaded to Itch.io manually, public access.
+- Game: Unity WebGL build uploaded to [Itch.io](https://abloomis.itch.io/pharmacy-go-v3) manually, public access.
 - Admin app: csv or xslx file uploaded manually.
-- Rollack: re-upload the previous build to Itch.
+- Rollback: re-upload the previous build to Itch.
 
 ## Open questions
-- Who owns the Itch.io account long term?
+- Movement: change to tile-based, or keep free + diagonal movement?
+- Art: use a unified palette across the whole game? Use natively-sized pixel art for the entire game, including fonts and UI?
+- Battles: how can we incorporate animations into battle UI?
 
 ## Deferred decisions
 - Character customization: best approach (palette swap, different sprites) and how choices are saved.
