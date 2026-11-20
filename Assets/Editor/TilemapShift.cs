@@ -1,102 +1,130 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public static class TilemapShiftTool
+public class TilemapShiftWindow : EditorWindow
 {
     /*
-     * Unity editor script to quickly shift entire columns or rows of the map (and the GameObjects on them) when
-     * designing and editing levels. Make sure this file stays in /Assets/Editor.
+     * An in-engine editor window for shifting entire columns or rows of tilemaps and
+     * GameObjects when designing levels. This file must live in /Assets/Editor/
      *
-     * Change the constants below to the desired values. Cell coordinates are shown in the Tile Palette and Scene view when you hover a tile.
-     * In the Hierarchy, select all the tilemap layers (e.g. foreground, background) for your map simultaneously [ctrl+click].
-     * To move GameObjects too, ctrl+click each NPC, door, sign, warp, etc. as well.
-     * Run Tools → Tilemap → Shift Columns or Shift Rows. Because each selected layer gets the same shift, they stay aligned.
-     * Check the result, and undo with [ctrl+Z] if needed.
+     * Open it from Tools > Tilemap > Shift Window.
+     * Select every layer (e.g. foreground, background) of one map in the Hierarchy, [ctrl+click] to select multiple.
+     * [ctrl+click] any NPCs, doors, signs, warps, etc that need to be moved.
+     * Set the axis, start line, and shift amount, then click "Shift". Use [ctrl+Z] to undo the shift.
      */
-
-    // Shift columns along x-axis.
-    const int StartX = 20;           // first column to move (use cell coords)
-    const int ShiftColumnsBy = -5;   // positive moves right, negative moves left
-
-    // Shift rows along y-axis.
-    const int StartY = 10;           // first row to move (use cell coords)
-    const int ShiftRowsBy = 0;       // positive moves up, negative moves down
-
-    // If true, selected non-tilemap objects at or past the start line also move.
-    const bool MoveGameObjects = true;
 
     enum Axis { Columns, Rows }
 
-    [MenuItem("Tools/Tilemap/Shift Columns")]
-    static void ShiftColumns() => Shift(Axis.Columns, StartX, ShiftColumnsBy);
+    [SerializeField] Axis axis = Axis.Columns;
+    [SerializeField] int start = 0;
+    [SerializeField] int amount = -1;
+    [SerializeField] bool moveObjects = true;
 
-    [MenuItem("Tools/Tilemap/Shift Rows")]
-    static void ShiftRows() => Shift(Axis.Rows, StartY, ShiftRowsBy);
+    [MenuItem("Tools/Tilemap/Shift Window")]
+    static void Open() => GetWindow<TilemapShiftWindow>("Tilemap Shift");
 
-    static void Shift(Axis axis, int start, int amount)
+    void OnSelectionChange() => Repaint();
+
+    void OnGUI()
+    {
+        EditorGUILayout.Space();
+        axis = (Axis)EditorGUILayout.EnumPopup("Shift", axis);
+        start = EditorGUILayout.IntField(axis == Axis.Columns ? "Start column (x)" : "Start row (y)", start);
+        amount = EditorGUILayout.IntField("Amount (cells)", amount);
+        moveObjects = EditorGUILayout.Toggle("Move selected GameObjects", moveObjects);
+
+        EditorGUILayout.HelpBox(
+            "Everything at or past the start line moves by the amount. " +
+            (axis == Axis.Columns ? "Positive = right, negative = left. " : "Positive = up, negative = down. ") +
+            "To close a gap, set the start to the first cell AFTER the gap and the amount to minus the gap size. " +
+            "Cells the block moves into are erased.",
+            MessageType.Info);
+
+        var tilemaps = GetSelectedTilemaps();
+        var objects = GetSelectedObjects();
+        EditorGUILayout.LabelField("Selected tilemaps", tilemaps.Count.ToString());
+        EditorGUILayout.LabelField("Selected GameObjects", objects.Count.ToString());
+
+        EditorGUILayout.Space();
+
+        using (new EditorGUI.DisabledScope(objects.Count == 0))
+        {
+            if (GUILayout.Button("Set start from selected object's cell"))
+            {
+                Grid grid = tilemaps.Count > 0 ? tilemaps[0].layoutGrid : FindFirstObjectByType<Grid>();
+                if (grid != null)
+                {
+                    Vector3Int cell = grid.WorldToCell(objects[0].position);
+                    start = axis == Axis.Columns ? cell.x : cell.y;
+                }
+            }
+        }
+
+        using (new EditorGUI.DisabledScope(tilemaps.Count == 0 || amount == 0))
+        {
+            if (GUILayout.Button("Shift", GUILayout.Height(30)))
+                Shift(tilemaps, objects);
+        }
+
+        if (tilemaps.Count == 0)
+            EditorGUILayout.HelpBox("Select at least one Tilemap in the Hierarchy.", MessageType.Warning);
+    }
+
+    static List<Tilemap> GetSelectedTilemaps()
+    {
+        var list = new List<Tilemap>();
+        foreach (var go in Selection.gameObjects)
+        {
+            var map = go.GetComponent<Tilemap>();
+            if (map != null) list.Add(map);
+        }
+        return list;
+    }
+
+    // Top-level selected transforms that are not tilemaps or grids.
+    static List<Transform> GetSelectedObjects()
+    {
+        var list = new List<Transform>();
+        foreach (var t in Selection.GetTransforms(SelectionMode.TopLevel | SelectionMode.Editable))
+        {
+            if (t.GetComponent<Tilemap>() != null || t.GetComponent<Grid>() != null) continue;
+            list.Add(t);
+        }
+        return list;
+    }
+
+    void Shift(List<Tilemap> tilemaps, List<Transform> objects)
     {
         string label = axis == Axis.Columns ? "Shift columns" : "Shift rows";
         Undo.SetCurrentGroupName(label);
         int undoGroup = Undo.GetCurrentGroup();
 
+        // Create an offset vec3 along the selected axis.
         Vector3Int offset = axis == Axis.Columns
             ? new Vector3Int(amount, 0, 0)
             : new Vector3Int(0, amount, 0);
 
-        Grid grid = null;
         int tilemapCount = 0;
-        int objectCount = 0;
-
-        // Shift the tiles on every selected Tilemap.
-        foreach (var go in Selection.gameObjects)
+        foreach (var map in tilemaps)
         {
-            var map = go.GetComponent<Tilemap>();
-            if (map == null) continue;
-
-            if (grid == null) grid = map.layoutGrid;
-
-            map.CompressBounds();
-            BoundsInt b = map.cellBounds;
-
-            int size = axis == Axis.Columns ? b.xMax - start : b.yMax - start;
-            if (size <= 0) continue;   // nothing at or past the start line
-
-            BoundsInt source = axis == Axis.Columns
-                ? new BoundsInt(start, b.y, b.z, size, b.size.y, b.size.z)
-                : new BoundsInt(b.x, start, b.z, b.size.x, size, b.size.z);
-
-            BoundsInt target = source;
-            target.position += offset;
-
-            Undo.RegisterCompleteObjectUndo(map, label);
-
-            TileBase[] tiles = map.GetTilesBlock(source);
-            map.SetTilesBlock(source, new TileBase[tiles.Length]);  // clear old spot
-            map.SetTilesBlock(target, tiles);                       // write new spot
-
-            EditorUtility.SetDirty(map);
-            EditorSceneManager.MarkSceneDirty(go.scene);
-            tilemapCount++;
+            if (ShiftTilemap(map, offset, label)) tilemapCount++;
         }
 
-        // Move the other selected GameObjects by the same number of cells.
-        if (MoveGameObjects)
+        int objectCount = 0;
+        if (moveObjects && objects.Count > 0)
         {
-            if (grid == null) grid = Object.FindFirstObjectByType<Grid>();
-
+            Grid grid = tilemaps[0].layoutGrid;
             if (grid == null)
             {
-                Debug.LogWarning("TilemapShiftTool: no Grid found, so GameObjects were not moved.");
+                Debug.LogWarning("Tilemap Shift: no Grid found, so GameObjects were not moved.");
             }
             else
             {
-                // TopLevel: if a parent and its child are both selected, only the parent is used
-                foreach (var t in Selection.GetTransforms(SelectionMode.TopLevel | SelectionMode.Editable))
+                foreach (var t in objects)
                 {
-                    if (t.GetComponent<Tilemap>() != null || t.GetComponent<Grid>() != null) continue;
-
                     Vector3Int cell = grid.WorldToCell(t.position);
                     int coord = axis == Axis.Columns ? cell.x : cell.y;
                     if (coord < start) continue;
@@ -106,7 +134,6 @@ public static class TilemapShiftTool
 
                     Undo.RecordObject(t, label);
                     t.position += delta;
-
                     EditorUtility.SetDirty(t);
                     EditorSceneManager.MarkSceneDirty(t.gameObject.scene);
                     objectCount++;
@@ -114,8 +141,49 @@ public static class TilemapShiftTool
             }
         }
 
-        // One [ctrl+Z] input undoes the entire operation.
+        // Use [ctrl+z] to undo the operation.
         Undo.CollapseUndoOperations(undoGroup);
         Debug.Log($"{label}: moved {tilemapCount} tilemap(s) and {objectCount} object(s).");
+    }
+
+    bool ShiftTilemap(Tilemap map, Vector3Int offset, string label)
+    {
+        map.CompressBounds();
+        BoundsInt b = map.cellBounds;
+
+        int size = axis == Axis.Columns ? b.xMax - start : b.yMax - start;
+        if (size <= 0) return false;   // nothing at or past the start line
+
+        BoundsInt source = axis == Axis.Columns
+            ? new BoundsInt(start, b.y, b.z, size, b.size.y, b.size.z)
+            : new BoundsInt(b.x, start, b.z, b.size.x, size, b.size.z);
+
+        BoundsInt target = source;
+        target.position += offset;
+
+        // Read tile data first (tile, tint, and rotation/flip).
+        var moved = new List<TileChangeData>();
+        foreach (var pos in source.allPositionsWithin)
+        {
+            TileBase tile = map.GetTile(pos);
+            if (tile == null) continue;
+            moved.Add(new TileChangeData(pos + offset, tile, map.GetColor(pos), map.GetTransformMatrix(pos)));
+        }
+
+        Undo.RegisterCompleteObjectUndo(map, label);
+
+        // Clear out both the old tiles and the tiles being replaced.
+        ClearBlock(map, source);
+        ClearBlock(map, target);
+        map.SetTiles(moved.ToArray(), true);
+
+        EditorUtility.SetDirty(map);
+        EditorSceneManager.MarkSceneDirty(map.gameObject.scene);
+        return true;
+    }
+
+    static void ClearBlock(Tilemap map, BoundsInt area)
+    {
+        map.SetTilesBlock(area, new TileBase[area.size.x * area.size.y * area.size.z]);
     }
 }
