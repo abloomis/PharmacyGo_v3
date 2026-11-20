@@ -57,10 +57,11 @@ The main branch should always hold a functional, ready-to-ship version of the ga
 1. In the Unity editor, select "File" in the top left then "Build Profiles".
 2. This creates a "Build Profiles" window. On the left side, select "Web" as your platform. The first time you do this, you may need to install WebGL packages; Unity will let you know if you need them.
 3. Select "Switch Platform", then select "Build" (NOT "Build and Run"). Unity will ask for a directory to hold the build files, you can use /Builds for example.
-4. After several minutes, the build will complete. Open the directory where you placed the files, then drag-click to select them all, and right-click to zip them all into a compressed folder.
+4. After several minutes, the build will complete. Open the directory where you placed the files, then drag-click to select them all, and right-click to zip them all into a compressed folder. Title your build in accordance with [Semantic Versioning](https://semver.org/).
 5. Open your Itch page for PharmacyGo and enter the page editor. In "Edit Game", scroll down to "Upload Files", then paste the newly created zip folder.
 6. While on the Itch page, ensure that the "This file will be played in the browser" and the "Mobile friendly" options are toggled on. Also, ensure that the embed option is set to "Click to launch in fullscreen".
-7. Now the newest build of the game should be running on your Itch page! Repeat this process for every new patch.
+8. Now the newest build of the game should be running on your Itch page! Repeat this process for every new patch, and create a new devlog entry on the Itch page for the updated build.
+9. Make sure to title your devlog entry with your SemVer patch number (e.g. "ver3.1.4"), and leave a note in the entry explaining the updates made since the previous build.
 
 ## Reporting Bugs / Requesting Changes
 
