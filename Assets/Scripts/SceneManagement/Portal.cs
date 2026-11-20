@@ -9,9 +9,10 @@ public class Portal : MonoBehaviour
     // Controls portal object and collider
     // Calls appropriate functions when player steps into portal
 
-    public int sceneBuildIndex; // The target scene's build index
+    public int sceneBuildIndex;             // The target scene's build index
     public int levelNumber;
-    public string targetSpawnPointID; // The ID of the target spawn point
+    public string targetSpawnPointID;       // The ID of the target spawn point
+    public float activationDelay = 0.5f;    // How long the portal delays before become active again (preventing instant re-teleports)
 
     private bool isTransitioning = false;
     private Collider2D portalCollider;
@@ -51,7 +52,7 @@ public class Portal : MonoBehaviour
         
 
         portalCollider.enabled = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(activationDelay);
         portalCollider.enabled = true;
         RefreshPortalEffect();
     }

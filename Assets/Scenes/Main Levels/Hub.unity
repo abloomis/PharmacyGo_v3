@@ -265852,7 +265852,7 @@ Transform:
   m_GameObject: {fileID: 1018682005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: -16, z: -0.11497435}
+  m_LocalPosition: {x: 11, y: -16.2, z: -0.11497435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -265872,7 +265872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneBuildIndex: 18
   levelNumber: 0
-  targetSpawnPointID: HubToLv1
+  targetSpawnPointID: HubToInterior
   portalEffect: {fileID: 0}
   hasNoParticle: 1
   isDoor: 1
@@ -265920,7 +265920,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 1}
+  m_Size: {x: 2.2, y: 0.5}
   m_EdgeRadius: 0
 --- !u!4 &1030441907 stripped
 Transform:
@@ -267746,7 +267746,7 @@ Transform:
   m_GameObject: {fileID: 1296373032}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: -17, z: -0.041363697}
+  m_LocalPosition: {x: 11, y: -18.5, z: -0.041363697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329022,8 +329022,8 @@ Transform:
   - {fileID: 928059496}
   - {fileID: 335432714}
   - {fileID: 298904623}
-  - {fileID: 1127665893}
   - {fileID: 1018682006}
+  - {fileID: 1127665893}
   - {fileID: 71555998}
   - {fileID: 1577401509}
   - {fileID: 908586267}
