@@ -18,7 +18,9 @@ public class Portal : MonoBehaviour
     // private ParticleSystem portalEffect;
     [SerializeField] private ParticleSystem portalEffect;
     public bool hasNoParticle;
-    
+
+    public bool isDoor;   // building entrance/exit: skip unlock check and timer, load by build index
+
 
 
     // run time, it makes newly unlocked portal immediately able to use
@@ -69,13 +71,15 @@ public class Portal : MonoBehaviour
             StartCoroutine(TransitionToScene());
 
             
-            if (levelNumber == LevelManager.Instance.UnlockedLevel)
+            if (!isDoor && levelNumber == LevelManager.Instance.UnlockedLevel)
             {
                 if (!TimerManager.Instance.IsLevelStarted())
                     TimerManager.Instance.ResetTimer();
                 TimerManager.Instance.StartTimer();
             }
         }
+
+
     }
 
     private IEnumerator TransitionToScene()
@@ -84,7 +88,9 @@ public class Portal : MonoBehaviour
         PlayerPrefs.SetString("SpawnPointID", targetSpawnPointID);
 
         // AsyncOperation operation = SceneManager.LoadSceneAsync(sceneBuildIndex);
-        AsyncOperation operation = LevelManager.Instance.LoadLevel(levelNumber);
+        AsyncOperation operation = isDoor
+            ? SceneManager.LoadSceneAsync(sceneBuildIndex)
+            : LevelManager.Instance.LoadLevel(levelNumber);
         yield return new WaitUntil(() => operation.isDone);
 
         yield return new WaitForSeconds(0.1f); // Delay for scene initialization
@@ -93,6 +99,8 @@ public class Portal : MonoBehaviour
         StartCoroutine(UpdateCinemachineTarget());
 
         isTransitioning = false;
+
+
     }
 
     private IEnumerator UpdateCinemachineTarget()
