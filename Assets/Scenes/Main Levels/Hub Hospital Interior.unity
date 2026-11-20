@@ -153,69 +153,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 547219009}
-  - {fileID: 1828762834}
-  - {fileID: 1059154942}
-  - {fileID: 769298971}
-  - {fileID: 624922972}
-  - {fileID: 824244846}
-  - {fileID: 2096796326}
-  - {fileID: 1766225340}
-  - {fileID: 1971087305}
-  - {fileID: 809864424}
-  - {fileID: 32543699}
-  - {fileID: 413298215}
-  - {fileID: 586198592}
-  - {fileID: 381867032}
-  - {fileID: 353014919}
-  - {fileID: 518756541}
+  - {fileID: 746967265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &32543698
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 32543699}
-  - component: {fileID: 32543700}
-  m_Layer: 0
-  m_Name: SpawnPoint_Lv2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &32543699
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32543698}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.99, y: -26.78, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &32543700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32543698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv2ToHub
 --- !u!1 &71555997
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +206,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv2
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &71556000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160079,6 +160020,103 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &99599611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99599612}
+  - component: {fileID: 99599614}
+  - component: {fileID: 99599613}
+  m_Layer: 0
+  m_Name: Portal_Lv4 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99599612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99599611}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11, y: -14.2, z: -0.11497435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1611390064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99599613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99599611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6915ce22acd32144b720a9df478a1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 7
+  levelNumber: 0
+  targetSpawnPointID: InteriorToHub
+  portalEffect: {fileID: 0}
+  hasNoParticle: 1
+  isDoor: 1
+--- !u!61 &99599614
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99599611}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &140635993
 GameObject:
   m_ObjectHideFlags: 0
@@ -178870,6 +178908,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToMuscle
   portalEffect: {fileID: 2038124921}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &298904625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179051,6 +179090,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToGI
   portalEffect: {fileID: 620402584}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &335432716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179206,51 +179246,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
---- !u!1 &353014918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 353014919}
-  - component: {fileID: 353014920}
-  m_Layer: 0
-  m_Name: SpawnPoint_Lv3MM
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &353014919
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353014918}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.47, y: 3.89, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &353014920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353014918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv3MMToHub
 --- !u!1 &360236112
 GameObject:
   m_ObjectHideFlags: 0
@@ -179668,51 +179663,6 @@ PolygonCollider2D:
       - {x: -47.144863, y: -99.11735}
       - {x: 105.367386, y: -98.50763}
   m_UseDelaunayMesh: 0
---- !u!1 &381867031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 381867032}
-  - component: {fileID: 381867033}
-  m_Layer: 0
-  m_Name: SpawnPoint_Lv2MM
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &381867032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381867031}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.81, y: -25.69, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &381867033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381867031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv2MMToHub
 --- !u!1 &388401279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2099600093481441621, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
@@ -180020,51 +179970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1c79789a03d694784ea041018b77ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &413298214
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 413298215}
-  - component: {fileID: 413298216}
-  m_Layer: 0
-  m_Name: SpawnPoint_Lv1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &413298215
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413298214}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 64.99, y: -25.71, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &413298216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413298214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv1ToHub
 --- !u!1 &414828190
 GameObject:
   m_ObjectHideFlags: 0
@@ -180516,51 +180421,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507947102}
   m_CullTransparentMesh: 1
---- !u!1 &518756540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 518756541}
-  - component: {fileID: 518756542}
-  m_Layer: 0
-  m_Name: 'SpawnPoint_Lv4MM '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &518756541
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518756540}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.31, y: -25.24, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &518756542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518756540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv4MMToHub
 --- !u!1 &527759780
 GameObject:
   m_ObjectHideFlags: 0
@@ -180643,51 +180503,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7719593186906020077, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
   m_PrefabInstance: {fileID: 1820392071}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &547219007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 547219009}
-  - component: {fileID: 547219008}
-  m_Layer: 0
-  m_Name: SpawnPoint_TownToHub
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &547219008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547219007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: TownToHub
---- !u!4 &547219009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547219007}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.95, y: -6.81, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552881911
 GameObject:
   m_ObjectHideFlags: 0
@@ -185622,51 +185437,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &586198591
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 586198592}
-  - component: {fileID: 586198593}
-  m_Layer: 0
-  m_Name: SpawnPoint_Lv1MM
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &586198592
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586198591}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.57, y: -25.21, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &586198593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586198591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv1MMToHub
 --- !u!1 &593324840
 GameObject:
   m_ObjectHideFlags: 0
@@ -190920,51 +190690,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &624922971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 624922972}
-  - component: {fileID: 624922973}
-  m_Layer: 0
-  m_Name: SpawnPoint_EyesToHub
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &624922972
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624922971}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.17, y: 19.89, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &624922973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624922971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: EyesToHub
 --- !u!1 &639167958
 GameObject:
   m_ObjectHideFlags: 0
@@ -191016,6 +190741,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToEyes
   portalEffect: {fileID: 657239727}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &639167961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -196099,7 +195825,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 2211169667896313794, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
   m_PrefabInstance: {fileID: 2017872473}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &769298969
+--- !u!1 &746967264
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196107,43 +195833,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 769298971}
-  - component: {fileID: 769298970}
+  - component: {fileID: 746967265}
+  - component: {fileID: 746967266}
   m_Layer: 0
-  m_Name: SpawnPoint_BladderToHub
+  m_Name: SpawnPoint_HubToInterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &769298970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769298969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: BladderToHub
---- !u!4 &769298971
+--- !u!4 &746967265
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769298969}
+  m_GameObject: {fileID: 746967264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 12.9, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
+  m_LocalPosition: {x: 11, y: -14, z: -0.041363716}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 19746298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &746967266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746967264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointID: HubToInterior
 --- !u!1001 &780982921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196374,51 +196100,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790018787}
   m_CullTransparentMesh: 1
---- !u!1 &809864423
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 809864424}
-  - component: {fileID: 809864425}
-  m_Layer: 0
-  m_Name: SpawnPoint_Lv3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &809864424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809864423}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.14, y: 5.34, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &809864425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809864423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv3ToHub
 --- !u!1 &813989400
 GameObject:
   m_ObjectHideFlags: 0
@@ -196498,51 +196179,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!1 &824244845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 824244846}
-  - component: {fileID: 824244847}
-  m_Layer: 0
-  m_Name: SpawnPoint_BrainToHub
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &824244846
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824244845}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.9, y: 20.2, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &824244847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824244845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: BrainToHub
 --- !u!1 &848611038
 GameObject:
   m_ObjectHideFlags: 0
@@ -258105,6 +257741,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv4
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &908586269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -258213,6 +257850,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToBrain
   portalEffect: {fileID: 1454280898}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &928059498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -265823,51 +265461,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5511220477222073332, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
   m_PrefabInstance: {fileID: 1689387382}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1059154940
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1059154942}
-  - component: {fileID: 1059154941}
-  m_Layer: 0
-  m_Name: SpawnPoint_LungsToHub
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1059154941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059154940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: LungToHub
---- !u!4 &1059154942
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059154940}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3, y: 19.9, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069623320
 GameObject:
   m_ObjectHideFlags: 0
@@ -266101,6 +265694,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLung
   portalEffect: {fileID: 2125783221}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &1070970760
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -266477,7 +266071,7 @@ Transform:
   m_GameObject: {fileID: 1094449607}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.19, y: -27, z: 0}
+  m_LocalPosition: {x: 0, y: -9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -266791,7 +266385,7 @@ Transform:
   m_GameObject: {fileID: 1111278647}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.19, y: -27, z: -10}
+  m_LocalPosition: {x: 0, y: -9, z: -10}
   m_LocalScale: {x: 1.5, y: 1.4286, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -267158,6 +266752,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv1
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &1127665895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -328632,6 +328227,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv3
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &1577401511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -328874,6 +328470,7 @@ Transform:
   - {fileID: 71555998}
   - {fileID: 1577401509}
   - {fileID: 908586267}
+  - {fileID: 99599612}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1614543606
@@ -329041,6 +328638,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToTown
   portalEffect: {fileID: 0}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &1623052322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -330364,6 +329962,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToBladder
   portalEffect: {fileID: 953036218}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &1737810381
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -330589,51 +330188,6 @@ MonoBehaviour:
   targetSpawnPointID: MMToLvl1
   price: 10
   NecessaryProgressionItemName: ShepardsGlasses
---- !u!1 &1766225339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1766225340}
-  - component: {fileID: 1766225341}
-  m_Layer: 0
-  m_Name: SpawnPoint_MuscleToHub
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1766225340
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766225339}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.38, y: 20.61, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1766225341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766225339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: MuscleToHub
 --- !u!1001 &1819619622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330989,51 +330543,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
---- !u!1 &1828762832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1828762834}
-  - component: {fileID: 1828762833}
-  m_Layer: 0
-  m_Name: SpawnPoint_HeartToHub
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1828762833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828762832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: HeartToHub
---- !u!4 &1828762834
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828762832}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.3, y: 43.43, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830059362
 GameObject:
   m_ObjectHideFlags: 0
@@ -339077,51 +338586,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4446034860129258843, guid: 1503932d2f3e0fb45b4a085fa2685e95, type: 3}
   m_PrefabInstance: {fileID: 1525068243543904913}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1971087304
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1971087305}
-  - component: {fileID: 1971087306}
-  m_Layer: 0
-  m_Name: SpawnPoint_Lv4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1971087305
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971087304}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.97, y: -25.73, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1971087306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971087304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: Lv4ToHub
 --- !u!1 &1990952727 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 421207248417673336, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
@@ -340010,11 +339474,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7389503708425134642, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7389503708425134642, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 7389503708425134642, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -349830,51 +349294,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5511220477222073332, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
   m_PrefabInstance: {fileID: 2060967372}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2096796325
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2096796326}
-  - component: {fileID: 2096796327}
-  m_Layer: 0
-  m_Name: SpawnPoint_GIToHub
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2096796326
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096796325}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.33, y: 39.15, z: 7.8811464}
-  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 19746298}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2096796327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096796325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: GIToHub
 --- !u!1001 &2121459304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355301,7 +354720,7 @@ Transform:
   m_GameObject: {fileID: 1259882426521305609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.58, y: -26.99, z: 0}
+  m_LocalPosition: {x: -2.5, y: -8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

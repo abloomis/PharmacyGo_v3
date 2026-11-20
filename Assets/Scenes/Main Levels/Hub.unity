@@ -169,6 +169,7 @@ Transform:
   - {fileID: 381867032}
   - {fileID: 353014919}
   - {fileID: 518756541}
+  - {fileID: 1296373033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &32543698
@@ -266,6 +267,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv2
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &71556000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178870,6 +178872,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToMuscle
   portalEffect: {fileID: 2038124921}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &298904625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179051,6 +179054,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToGI
   portalEffect: {fileID: 620402584}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &335432716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191016,6 +191020,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToEyes
   portalEffect: {fileID: 657239727}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &639167961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -258105,6 +258110,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv4
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &908586269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -258213,6 +258219,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToBrain
   portalEffect: {fileID: 1454280898}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &928059498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -265818,6 +265825,103 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1018682005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1018682006}
+  - component: {fileID: 1018682008}
+  - component: {fileID: 1018682007}
+  m_Layer: 0
+  m_Name: Portal_Interior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1018682006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018682005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11, y: -16, z: -0.11497435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1611390064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1018682007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018682005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6915ce22acd32144b720a9df478a1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 18
+  levelNumber: 0
+  targetSpawnPointID: HubToLv1
+  portalEffect: {fileID: 0}
+  hasNoParticle: 1
+  isDoor: 1
+--- !u!61 &1018682008
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018682005}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &1030441907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5511220477222073332, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
@@ -266101,6 +266205,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLung
   portalEffect: {fileID: 2125783221}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &1070970760
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -267158,6 +267263,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv1
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &1127665895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -267614,6 +267720,51 @@ Transform:
   - {fileID: 1915349855}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1296373032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296373033}
+  - component: {fileID: 1296373034}
+  m_Layer: 0
+  m_Name: SpawnPoint_InteriorToHub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1296373033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296373032}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11, y: -17, z: -0.041363697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19746298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1296373034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296373032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointID: InteriorToHub
 --- !u!1001 &1362428429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328632,6 +328783,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToLv3
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &1577401511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -328871,6 +329023,7 @@ Transform:
   - {fileID: 335432714}
   - {fileID: 298904623}
   - {fileID: 1127665893}
+  - {fileID: 1018682006}
   - {fileID: 71555998}
   - {fileID: 1577401509}
   - {fileID: 908586267}
@@ -329041,6 +329194,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToTown
   portalEffect: {fileID: 0}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &1623052322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -330364,6 +330518,7 @@ MonoBehaviour:
   targetSpawnPointID: HubToBladder
   portalEffect: {fileID: 953036218}
   hasNoParticle: 0
+  isDoor: 0
 --- !u!61 &1737810381
 BoxCollider2D:
   m_ObjectHideFlags: 0
