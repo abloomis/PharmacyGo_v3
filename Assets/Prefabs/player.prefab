@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickCanvas: {fileID: 694227998017511937}
+  sprintButton: {fileID: 0}
 --- !u!1 &1938964688693061374
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 3748261390161565569}
-  moveSpeed: 5
+  sprintButton: {fileID: 0}
+  moveSpeed: 7.5
   solidObjectsLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -259,6 +261,11 @@ MonoBehaviour:
   grassLayer:
     serializedVersion: 2
     m_Bits: 512
+  NPCFovLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  sprintPressed: 0
+  isSprinting: 0
   numberOfAreas: 4
   ExclamationMark: {fileID: 5048386539495906779}
 --- !u!95 &6929590514137634587
