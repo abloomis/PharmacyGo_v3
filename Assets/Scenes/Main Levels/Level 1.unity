@@ -190,8 +190,8 @@ MonoBehaviour:
   dialog:
     lines:
     - Ah! Were you looking for Dr Shepard's glasses for him?
-    - 'For as smart as the man is, he would probably forget his nose if it weren''t '
-    - attached to his face!
+    - For as smart as the man is, he would probably forget his nose if it weren't
+      attached to his face!
   InteractPrompt: {fileID: 742446728}
   seen: 0
   showTravelChoice: 0
@@ -4677,7 +4677,7 @@ MonoBehaviour:
   dialog:
     lines:
     - Nice work making it through the garden!
-    - Up for another challenge?
+    - Now how about a real challenge!
   FoV: {fileID: 0}
   maxQuestions: 5
   enemyDefeated: 0
@@ -4733,7 +4733,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
     lines:
-    - Oh no
+    - Oh, you made it past the rest of my study group?
+    - Originally I was saving these questions for them, but you'll make a good beta
+      test!
   InteractPrompt: {fileID: 37413078}
   seen: 0
   showTravelChoice: 0
@@ -4885,7 +4887,7 @@ Transform:
   m_GameObject: {fileID: 72675630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.03, y: 13, z: 0}
+  m_LocalPosition: {x: 32.45, y: 9.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5117,6 +5119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: ShepardsGlasses
   InteractPrompt: {fileID: 1852098183}
+  pickupDialogue: 'You found: Dr. Shepard''s Glasses!'
 --- !u!1 &157372516
 GameObject:
   m_ObjectHideFlags: 0
@@ -7458,7 +7461,7 @@ Transform:
   m_GameObject: {fileID: 275262653}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66.5, y: 19.46, z: 0.27020484}
+  m_LocalPosition: {x: 66.47, y: 19.36, z: 0.27020484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7520,6 +7523,7 @@ MonoBehaviour:
     - 'As the old saying goes:'
     - An apple a day keeps the doctor away.
     - You think that's why Dr Shepard made you come get his glasses for him?
+    - Makes you wonder how they got here in the first place...
   InteractPrompt: {fileID: 798431116}
   seen: 0
   showTravelChoice: 0
@@ -297524,8 +297528,10 @@ MonoBehaviour:
   sceneBuildIndex: 7
   levelNumber: 0
   targetSpawnPointID: Lv1ToHub
+  activationDelay: 0.5
   portalEffect: {fileID: 0}
   hasNoParticle: 1
+  isDoor: 0
 --- !u!61 &626546790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -298443,7 +298449,7 @@ MonoBehaviour:
     - The doctor's glasses? They're just up ahead.
     - But you will need to get through me first!
   FoV: {fileID: 467492838}
-  maxQuestions: 3
+  maxQuestions: 4
   enemyDefeated: 0
 --- !u!95 &904492174
 Animator:
@@ -299166,15 +299172,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.079947576
+    y: 0.25138122
+    width: 0.83879423
+    height: 0.4972376
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.133333
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -299632,14 +299638,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
     lines:
-    - Don't worry! I am not here to ask you anything.
-    - I can take you back to the hub if you're done here for now!
+    - Don't worry! I am not here to ask you anything. I'm not with those blue-shirt
+      guys.
+    - I can take you back to the hub if you're done here, though!
+    - Ready to head back?
   InteractPrompt: {fileID: 1941353925}
   seen: 0
   showTravelChoice: 1
   travelChoices:
-  - Yes
-  - No
+  - Yes!
+  - No.
   minigameChoices: []
   getProgressionItemDialog:
     lines: []
@@ -300591,7 +300599,7 @@ MonoBehaviour:
     - Surprise! Pop quiz!
     - Let's see what you know!
   FoV: {fileID: 0}
-  maxQuestions: 2
+  maxQuestions: 3
   enemyDefeated: 0
 --- !u!95 &1457247788
 Animator:
@@ -395691,7 +395699,7 @@ MonoBehaviour:
   dialog:
     lines:
     - There are four of us in this garden!
-    - Think you can handle the gaunlet?
+    - Think you can handle the gauntlet?
   FoV: {fileID: 0}
   maxQuestions: 1
   enemyDefeated: 0
@@ -395801,9 +395809,10 @@ MonoBehaviour:
   exclaimation: {fileID: 1643377365}
   dialog:
     lines:
-    - The doctor's glasses? You're on the right track.
+    - The doctor's glasses? I think I saw them this way, but first you'll help me
+      with this study question!
   FoV: {fileID: 0}
-  maxQuestions: 3
+  maxQuestions: 2
   enemyDefeated: 0
 --- !u!95 &1771111245
 Animator:
@@ -396760,6 +396769,15 @@ PrefabInstance:
     - target: {fileID: 8383196429491795453, guid: ecfa06e377fb5e542afda46b1ab358af, type: 3}
       propertyPath: m_Name
       value: Live in 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824839474103191546, guid: ecfa06e377fb5e542afda46b1ab358af, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824839474103191546, guid: ecfa06e377fb5e542afda46b1ab358af, type: 3}
+      propertyPath: 'dialog.lines.Array.data[3]'
+      value: Some of the students around here are surprisingly pushy with their study
+        questions!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

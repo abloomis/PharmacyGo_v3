@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System;
 
 public class ItemPickup : MonoBehaviour, Interactable
 {
@@ -7,6 +9,7 @@ public class ItemPickup : MonoBehaviour, Interactable
 
     [SerializeField] private string itemName;
     [SerializeField] private GameObject InteractPrompt;
+    [SerializeField, TextArea] private string pickupDialogue;
 
     void Start()
     {
@@ -16,13 +19,25 @@ public class ItemPickup : MonoBehaviour, Interactable
             gameObject.SetActive(false);
         }
     }
-    public void Interact(Transform initiator)
+
+    private IEnumerator PickupSequence()
     {
         Debug.Log("Added item to inventory: " + itemName);
-
+        
         ProgressionState.Instance.CollectItem(itemName);
 
+        if (!string.IsNullOrWhiteSpace(pickupDialogue))
+        {
+            yield return StartCoroutine(DialogManager.Instance.ShowDialogText(pickupDialogue));
+        }
+
         gameObject.SetActive(false);
+    }
+    public void Interact(Transform initiator)
+    {
+
+        StartCoroutine(PickupSequence());
+        
     }
 
 
