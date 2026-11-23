@@ -2,24 +2,24 @@
 
 | Field | Value |
 | --- | --- |
-| Author | Zach Goldstein|
+| Author | Zach Goldstein |
 | Date | 2026-10-24 |
-| Status | Proposed / Accepted / Rejected / Superseded |
-| Decision Date | (fill when decided) |
-| Deciders | (who agreed to the outcome) |
-| Superseded By | (link, if applicable) |
+| Status | Proposed / **Accepted** / Rejected / Superseded |
+| Decision Date | 11/17/26 |
+| Deciders | Project Partner: BJ Philmus |
+| Superseded By | N/A |
 
 ## Problem and Context
 
 My team is working on Capstone Project 019, PharmacyGo_v3. Our project contribution will be to iterate on an existing game made by a capstone group from last year. Designed as a study game for Pharmacy students, the game is inspired by the original set of Pokemon games. As such, it is top-down, has a pixel art style, and uses interactions and minigames like Pokemon battles to represent the things a “student” (player) has learned. The previous year group created a fully working v2 of the game, and our job is to add more to this existing base, such as new mini-games, new levels that focus on specific systems or regions in the body, etc.
 
-The problem for this RFC is whether or not we should update the project to a more recent version of Unity. The version we are currently using was released almost exactly two years ago, and is no longer supported and has active security warnings.
+The problem for this RFC is whether or not we should update the project to a more recent version of Unity. The target version of Unity would be either 6.3 or 6.6, with varying levels of complexity for these updates.The version we are currently using (Version 6000.0.24f1) was released almost exactly two years ago, and is no longer supported and has active security warnings. While the security warnings present in our current version are unlikely to cause our particular project any problems, due to the singleplayer nature of our game, it is still worth considering for peace of mind and associated technical improvements in the newer engine versions.
 
 ## Options
 
 Option 1. Move to the latest stable build of Unity.
 Option 2. Move to the latest LTS (long-term support) build.
-Option 3. Do nothing.
+**Option 3. Do nothing.**
 
 ### Option A: Latest Stable Build
 
@@ -49,16 +49,11 @@ One large issue is that the version we are currently using, and any version rele
 
 The technical tradeoffs that matter for this decision: performance, complexity, maintainability, security, cost. Argue from evidence (benchmarks, prototypes, documentation, prior art) and cite what you relied on so a reviewer can check it. Acknowledge what you are uncertain about.
 
-The 6.3 LTS build would have the best maintainability, and is recommended for “developers who are about to lock in production” and “new and mid-cycle productions”. I feel as though our project falls into both of these two categories. The benefits of upgrading Unity versions include huge performance upgrades, such as: highly reduced memory usage, reduced build times (up to 50% reduction), and many other new features. Additionally, while it is unlikely to affect a project like ours, this update would eliminate the severe security vulnerability mentioned in Option C. While I am not sure as of yet how these new features would affect our project development, the build time, compile time, and memory usage, as well as the security patch are reason enough, in my opinion, to move forward with the update. 
-
-Sources:
-https://unity.com/security/sept-2025-01
-https://www.cve.org/CVERecord?id=CVE-2025-59489
-https://unity.com/blog/unity-6-3-lts-is-now-available
+The 6.3 LTS build would have the best maintainability, and is recommended for “developers who are about to lock in production” and “new and mid-cycle productions”. I feel as though our project falls into both of these two categories. The benefits of upgrading Unity versions include huge performance upgrades, such as: highly reduced memory usage, reduced build times (up to 50% reduction), and many other new features. Additionally, while it is unlikely to affect a project like ours, as it is entirely singleplayer and has no connections to a server or other users, this update would eliminate the severe security vulnerability mentioned in Option C. While I am not sure as of yet how these new features would affect our project development, the build time, compile time, and memory usage, as well as the security patch are reason enough, in my opinion, to move forward with the update. 
 
 ## Recommendation and Verification Plan
 
-I recommend that we go with Option B. This version will add new features and improvements, fix potentially critical security flaws with our current version, and will still have support several years from now. No verification plan will be required, aside from checking for the correct version number and ensuring that our game still works.
+I recommend that we go with Option B. This version will add new features and improvements, fix potentially critical security flaws with our current version, and will still have support several years from now. If we move forward with either option to update the version of Unity we employ, we can compare the before and after compile times, build times, and memory usage to verify that the improvements are actually present. This, coupled with the Unity version indicator visible on the project should be sufficient. 
 
 ## Constraints
 
@@ -70,4 +65,14 @@ I did all of the work on this RFC myself, and did not use AI tools for any part 
 
 ## Decision
 
-Proposed, seeking review. 
+Met with project partner, decided on Option C. No action will be taken.
+
+## Bibliography
+
+Works Cited
+
+“CVE-2025-59489.” Cve.Org, 2025, www.cve.org/CVERecord?id=CVE-2025-59489. Accessed 26 Oct. 2026.
+
+“Security Update Advisory.” Unity, 2025, unity.com/security/sept-2025-01. Accessed 25 Oct. 2026.
+
+Smith, Adam. “Unity 6.3 LTS Is Now Available | Unity.” Unity, 4 Dec. 2025, unity.com/blog/unity-6-3-lts-is-now-available. Accessed 25 Oct. 2026.
