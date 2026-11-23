@@ -71,6 +71,9 @@ public class BlackjackMinigame : MonoBehaviour
     public int minigameDifficulty = 0;
     public float dealerDrawDelay = 0.6f;
     public int dealerStandValue = 17;
+    public int winCoins = 1;
+    public int winScore = 1000;
+    public int pushScore = 500;
 
     public Question currentQuestion;
 
@@ -226,10 +229,25 @@ public class BlackjackMinigame : MonoBehaviour
 
     private void OfferCardChoice()
     {
+        phase = BlackjackPhase.ChoosingCard;
+        offeredCards.Clear();
+        offeredCards.Add(DrawFromDeck());
+        offeredCards.Add(DrawFromDeck());
+        SetStatus("Correct! Pick a card: [0] " + offeredCards[0] + "  [1] " + offeredCards[1]);
     }
 
     public void ChooseOfferedCard(int index)
     {
+        if (phase != BlackjackPhase.ChoosingCard) return;
+        if (index < 0 || index >= offeredCards.Count) return;
+
+        BlackjackCard chosen = offeredCards[index];
+        for (int i = 0; i < offeredCards.Count; i++)
+        {
+            if (i != index) deck.Insert(0, offeredCards[i]);
+        }
+        offeredCards.Clear();
+        GivePlayerCard(chosen);
     }
 
     private void GivePlayerCard(BlackjackCard card)
@@ -298,6 +316,23 @@ public class BlackjackMinigame : MonoBehaviour
 
     private void GiveRewards(BlackjackResult result)
     {
+        int coins = 0;
+        int score = 0;
+
+        if (result == BlackjackResult.PlayerWin)
+        {
+            coins = winCoins;
+            score = winScore;
+        }
+        else if (result == BlackjackResult.Push)
+        {
+            score = pushScore;
+        }
+
+        if (coins > 0) CoinManager.Instance.AddCoin(coins);
+        if (score > 0) ScoreManager.Instance.AddMinigameScore(score);
+
+        SetStatus(result + "\nYou got " + coins + " coin(s) and " + score + " points");
     }
 
     private void UpdateHandTexts()
